@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var count: Int = 0
+
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+                
+        Button("Tap Count \(count)") {
+            count += 1
+            print(count)
+        }
     }
 }
 
@@ -19,3 +26,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
