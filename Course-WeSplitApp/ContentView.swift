@@ -9,14 +9,20 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var count: Int = 0
-
+    let clients = ["Januszex", "Mirex", "Polex"]
+    @State private var selectedClient = "Januszex"
     
     var body: some View {
-                
-        Button("Tap Count \(count)") {
-            count += 1
-            print(count)
+        NavigationView{
+            Form{
+                Picker("Select your Client", selection: $selectedClient) {
+                    ForEach(clients, id: \.self){
+                        Text($0)
+                    }
+                }
+            }
+            .navigationTitle("Clients database")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
@@ -26,4 +32,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
